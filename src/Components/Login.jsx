@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import NavBar from './Navbar';
 import Footer from './Footer';
 import '../assets/Login.css';
-import '../assets/Login.css';
 import MosaicoImage from '../assets/img/Mosaico.png';
 import swal from 'sweetalert';
 

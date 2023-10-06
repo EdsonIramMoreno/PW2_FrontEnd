@@ -23,18 +23,21 @@ h1 {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
+    background-color: beige;
 }
 
 .INPUTS input[type="password"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
+    background-color: beige;
+
 }
 
 input[type="submit"] {
     width: auto;
     height: 50px;
-    background-color: rgb(37, 40, 42);
+    background-color: beige;
     font-size: large;
     letter-spacing: 10px;
 }
