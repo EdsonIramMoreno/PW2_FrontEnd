@@ -42,13 +42,13 @@ function Login() {
       } else if (response.status === 401) {
         // Handle unauthorized (authentication failed) here
         console.error('Authentication failed');
-        swal('Oops!', 'Wrong username or password', 'error');
+        swal('Oops!', 'Usuario o clave equivocados', 'error');
       }
 
     } catch (error) {
       // Handle authentication error here, e.g., show an error message to the user
       console.error('Authentication error:', error);
-      swal("Oops!", "Wrong password", "error");
+      swal("Oops!", "Clave equivocada", "error");
     }
   };
 

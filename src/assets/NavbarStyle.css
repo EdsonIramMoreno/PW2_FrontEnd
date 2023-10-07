@@ -1,8 +1,8 @@
-*{
-    color:#292929;
-}
-
-.Body2 {
+* {
+    color: #292929;
+  }
+  
+  .Body2 {
     min-height: 100vh;
     display: flex;
     align-items: stretch;
@@ -12,87 +12,103 @@
     font-family: 'Montserrat', sans-serif;
     letter-spacing: 10px;
     background-color: rgb(255, 253, 230);
-}
-
-footer {
+  }
+  
+  footer {
     padding-top: 20px;
     display: flex;
-}
-
-html {
+  }
+  
+  html {
     overflow-y: hidden;
-}
-
-.ClassNavBar {
+  }
+  
+  .ClassNavBar {
     background: linear-gradient(0deg, rgba(255, 253, 230) 0%, rgba(245, 255, 155, 0.5) 45%);
     padding: 20px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-}
-
-.ClassNavBar a {
+  }
+  
+  .ClassNavBar .NombreNav {
+    list-style: none;
     margin: 0;
     margin-right: 0px;
     font-size: 24px;
     text-decoration: none;
     color: rgb(51, 51, 51);
-}
-
-.menu {
+  }
+  
+  .ClassNavBar .NombreNav:hover {
+    font-size: 26px;
+    color: rgb(192, 135, 13);
+  }
+  
+  .menu {
     color: rgb(65, 65, 65);
     list-style: none;
     padding: 0;
     display: flex;
     gap: 50px;
     align-items: center;
-}
-
-.menu li {
+  }
+  
+  .menu li {
     margin: 0;
-}
-
-.menu li a {
-    text-decoration: none;
-    color: rgb(65, 65, 65);
-    font-weight: normal;
-    font-size: 16px;
-}
-
-.menu li a:hover {
-    color: #ffd700;
-}
-
-@media screen and (max-width: 768px) {
+    position: relative;
+    transition: transform 0.3s;
+  }
+  
+  .menu li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -5px;
+    height: 2px;
+    background-color: rgb(61, 54, 40);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s;
+    opacity: 0;
+  }
+  
+  .menu li:hover::before {
+    transform: scaleX(1);
+    opacity: 1;
+    transform-origin: center;
+    bottom: -5px;
+  }
+  
+  @media screen and (max-width: 768px) {
     .menu {
-        gap: 10px;
+      gap: 10px;
     }
-}
-
-.Contenido {
+  }
+  
+  .Contenido {
     padding: 15px;
     height: 521px;
     overflow-y: scroll;
-}
-
-
-.Contenido::-webkit-scrollbar {
+  }
+  
+  .Contenido::-webkit-scrollbar {
     width: 12px;
-}
-
-.Contenido::-webkit-scrollbar-track {
+  }
+  
+  .Contenido::-webkit-scrollbar-track {
     background: #9c9c9c;
-}
-
-.Contenido::-webkit-scrollbar-thumb {
+  }
+  
+  .Contenido::-webkit-scrollbar-thumb {
     background: #888888;
-}
-
-.Contenido::-webkit-scrollbar-thumb:hover {
+  }
+  
+  .Contenido::-webkit-scrollbar-thumb:hover {
     background: #555;
-}
-
-
-input[type="text"]::placeholder{
+  }
+  
+  input[type="text"]::placeholder {
     letter-spacing: 10px;
-}
+  }  
