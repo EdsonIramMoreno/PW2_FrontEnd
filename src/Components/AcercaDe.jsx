@@ -2,16 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import NavBar from './Navbar';
 import Footer from './Footer';
-import './assets/NavbarStyle.css'
-import './assets/AcercaDe.css'
-import ArtistaImg from './assets/img/ArtistaEjemplo.jpg'
+import '../assets/CSS/NavbarStyle.css'
+import '../assets/CSS/AcercaDe.css'
+import ArtistaImg from '../assets/img/ArtistaEjemplo.jpg'
 
-const root = document.getElementById('rootAD');
 
-ReactDOM.render(
-    <React.StrictMode>
+function AcercaDe() {
+    return (
+        <React.StrictMode>
         <div className='Body2'>
-            <NavBar />
+            {/* <NavBar /> */}
             <div className="Contenido">
                 <div className="Info">
                     <div className="FotoArtista">
@@ -28,6 +28,8 @@ ReactDOM.render(
                 <Footer />
             </div>
         </div>
-    </React.StrictMode>,
-    root
-);
+    </React.StrictMode>
+    )
+}
+
+export default AcercaDe;

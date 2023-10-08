@@ -1,10 +1,8 @@
 import React from 'react';
-import './assets/NavbarStyle.css'
-import './assets/Artwork.css'
-import Pinturas from './assets/img/Pinturas.jpg'
-import Esculturas from './assets/img/Esculturas.jpg'
-import Mosaico from './assets/img/Mosaico.png'
-import Contacto from './assets/img/Contacto.png'
+import Pinturas from '../assets/img/Pinturas.jpg'
+import Esculturas from '../assets/img/Esculturas.jpg'
+import Mosaico from '../assets/img/Mosaico.png'
+import Contacto from '../assets/img/Contacto.png'
 
 function ArtworkGrid() {
   return (

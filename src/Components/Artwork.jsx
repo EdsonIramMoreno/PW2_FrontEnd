@@ -1,18 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import NavBar from './Navbar';
+// import NavBar from './Navbar';
 import Footer from './Footer';
-import ArtworkGrid from './ArtworkImgs';
-import './assets/NavbarStyle.css'
-import './assets/Artwork.css'
+import ArtworkGrid from '../Components/ArtworkImgs';
+import '../assets/CSS/Artwork.css';
 
-
-const root = document.getElementById('rootART');
-
-ReactDOM.render(
-    <React.StrictMode>
+function Artwork() {
+    return (
+        <React.StrictMode>
         <div className='Body2'>
-            <NavBar />
+            {/* <NavBar /> */}
             <div className="Contenido">
 
                 <ArtworkGrid />
@@ -20,6 +17,8 @@ ReactDOM.render(
                 <Footer />
             </div>
         </div>
-    </React.StrictMode>,
-    root
-);
+    </React.StrictMode>
+    )
+}
+
+export default Artwork;

@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import NavBar from './Navbar';
+import NavBar from './Navbar';
 import Footer from './Footer';
-import './assets/NavbarStyle.css'
-import './assets/HOME.css'
-import PinturasImg from './assets/img/Pinturas.jpg'
-import EsculturasImg from './assets/img/Esculturas.jpg'
+import '../assets/CSS/NavbarStyle.css'
+import '../assets/CSS/HOME.css'
+import PinturasImg from '../assets/img/Pinturas.jpg'
+import EsculturasImg from '../assets/img/Esculturas.jpg'
 
 function Home() {
     return (

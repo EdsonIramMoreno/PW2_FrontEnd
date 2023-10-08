@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import NavBar from './Navbar';
 import Footer from './Footer';
-import '../assets/Login.css';
+import '../assets/CSS/Login.css';
 import MosaicoImage from '../assets/img/Mosaico.png';
 import swal from 'sweetalert';
 
@@ -55,7 +55,7 @@ function Login() {
   return (
     <React.StrictMode>
       <div className='Body2'>
-        <NavBar />
+        {/* <NavBar /> */}
         <div className="Contenido">
           <div className="Inicio">
             <div className="Mosaico">

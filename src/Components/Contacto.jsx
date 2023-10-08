@@ -2,17 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import NavBar from './Navbar';
 import Footer from './Footer';
-import SiluetasImg from './assets/img/Contacto.png'
-import './assets/NavbarStyle.css'
-import './assets/Contacto.css'
+import SiluetasImg from '../assets/img/Contacto.png'
+import '../assets/CSS/NavbarStyle.css'
+import '../assets/CSS/Contacto.css'
 
-
-const root = document.getElementById('rootC');
-
-ReactDOM.render(
-    <React.StrictMode>
+function Contacto() {
+    return (
+        <React.StrictMode>
         <div className='Body2'>
-            <NavBar />
+            {/* <NavBar /> */}
             <div className="Contenido">
 
                 <div className="ContactoClass">
@@ -32,6 +30,8 @@ ReactDOM.render(
                 <Footer />
             </div>
         </div>
-    </React.StrictMode>,
-    root
-);
+    </React.StrictMode>
+    )
+}
+
+export default Contacto;

@@ -22,14 +22,24 @@
   html {
     overflow-y: hidden;
   }
-  
+
   .ClassNavBar {
-    background: linear-gradient(0deg, rgba(255, 253, 230) 0%, rgba(245, 255, 155, 0.5) 45%);
+    background: linear-gradient(0deg, rgba(255, 253, 230) 0%, rgb(255, 238, 207) 90%);
     padding: 20px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 10px;
+    color: #292929;
+    transition: background-color 1.5s ease; 
   }
+  
+  .ClassNavBar:hover {
+    background: linear-gradient(0deg, rgb(255, 253, 230) 0%, rgb(255, 238, 207) 70%);
+    transition: background-color 1.5s ease;
+  }
+  
   
   .ClassNavBar .NombreNav {
     list-style: none;
@@ -53,8 +63,9 @@
     gap: 50px;
     align-items: center;
   }
-  
+
   .menu li {
+    color:#292929;
     margin: 0;
     position: relative;
     transition: transform 0.3s;

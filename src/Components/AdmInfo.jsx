@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import '../assets/NavbarStyle.css';
-import '../assets/AdminStyle.css';
+import '../assets/CSS/NavbarStyle.css';
+import '../assets/CSS/AdminStyle.css';
 
 function AdminInfo() {
   const [isEditingNombre, setIsEditingNombre] = useState(false);
