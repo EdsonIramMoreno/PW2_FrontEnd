@@ -1,13 +1,16 @@
-.Contenido {
+/* .Contenido {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
+} */
 
 .Galeria {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 20px;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
 }
 
 .Galeria img {

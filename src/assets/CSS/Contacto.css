@@ -12,6 +12,7 @@
 
 .Contactar input[type="text"] {
     margin-bottom: 2px;
+    background-color: beige;
 }
 
 .Contactar input[type="text"][placeholder="CORREO"] {
@@ -36,8 +37,10 @@
     letter-spacing: 10px;
 }
 
-input[type="submit"]:hover {
+.Contactar input[type="submit"]:hover {
     box-shadow: 3px 3px 1px rgb(0, 0, 0);
+    width: 30%;
+    height: 50px;
 }
 
 .ContactoClass{
