@@ -2,6 +2,14 @@
     text-align: center;
 }
 
+.ColeccionNueva h1 {
+    margin: 5px;
+}
+
+.ColeccionNueva h3 {
+    margin: 5px;
+}
+
 .ColeccionNueva a {
     text-decoration: none;
     color: black;
@@ -23,14 +31,14 @@
     margin-left: 15px;
     margin-right: 15px;
     text-align: center;
-    max-width: 50%;
+    max-width: 400%;
     overflow: hidden;
     position: relative;
 }
 
 .Imagen img {
     width: 100%;
-    height: 400px;
+    height: 380px;
     object-fit: cover;
     transition: filter 80s ease, transform 3s ease;
 }
