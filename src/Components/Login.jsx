@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import NavBar from './Navbar';
 import Footer from './Footer';
 import '../assets/CSS/Login.css';
@@ -15,7 +15,7 @@ function Login() {
     try {
 
       const data = {
-        "username": username, 
+        "username": username,
         "password": password
       };
 
@@ -36,7 +36,7 @@ function Login() {
         const token = await response.text();
         console.log('Token:', token);
         // Redirect or store the token as needed
-  
+
         // For demonstration purposes, show a success message
         swal('Success!', 'Login successful', 'success');
       } else if (response.status === 401) {
@@ -52,41 +52,56 @@ function Login() {
     }
   };
 
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    // Simula una demora antes de mostrar el componente
+    const timeout = setTimeout(() => {
+      setVisible(true);
+    }, 100); // Cambia esto al tiempo de carga deseado
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, []);
+
   return (
     <React.StrictMode>
-      <div className='Body2'>
-        {/* <NavBar /> */}
-        <div className="Contenido">
-          <div className="Inicio">
-            <div className="Mosaico">
-              <img src={MosaicoImage} alt="Mosaico" />
+      <div className={`mi-componente ${visible ? 'visible' : ''}`}>
+        <div className='Body2'>
+          {/* <NavBar /> */}
+          <div className="Contenido">
+            <div className="Inicio">
+              <div className="Mosaico">
+                <img src={MosaicoImage} alt="Mosaico" />
+              </div>
+              <div className="Login">
+                <h1>Iniciar Sesión</h1>
+                <form onSubmit={handleSubmit}>
+                  <div className="INPUTS">
+                    <input
+                      type="text"
+                      name=""
+                      id=""
+                      placeholder="Usuario"
+                      value={username}
+                      onChange={(e) => setUsername(e.target.value)}
+                    />
+                    <input
+                      type="password"
+                      name=""
+                      id=""
+                      placeholder="Clave"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
+                  </div>
+                  <input type="submit" value="Iniciar" />
+                </form>
+              </div>
             </div>
-            <div className="Login">
-              <h1>Iniciar Sesión</h1>
-              <form onSubmit={handleSubmit}>
-                <div className="INPUTS">
-                  <input
-                    type="text"
-                    name=""
-                    id=""
-                    placeholder="Usuario"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                  />
-                  <input
-                    type="password"
-                    name=""
-                    id=""
-                    placeholder="Clave"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                  />
-                </div>
-                <input type="submit" value="Iniciar" />
-              </form>
-            </div>
+            <Footer />
           </div>
-          <Footer />
         </div>
       </div>
     </React.StrictMode>

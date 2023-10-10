@@ -67,3 +67,12 @@
 .Overlay h2 {
     margin: 0;
 }
+
+.mi-componente {
+    opacity: 0;
+    transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Ajusta la duración y el timing function */
+  }
+  
+  .mi-componente.visible {
+    opacity: 1;
+  }

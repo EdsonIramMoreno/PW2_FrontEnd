@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 // import ReactDOM from 'react-dom';
 // import NavBar from './Navbar';
 import Footer from './Footer';
@@ -7,18 +7,33 @@ import '../assets/CSS//NavbarStyle.css'
 import '../assets/CSS/Media.css'
 
 function Media() {
+    const [visible, setVisible] = useState(false);
+
+    useEffect(() => {
+        // Simula una demora antes de mostrar el componente
+        const timeout = setTimeout(() => {
+            setVisible(true);
+        }, 100); // Cambia esto al tiempo de carga deseado
+
+        return () => {
+            clearTimeout(timeout);
+        };
+    }, []);
+
     return (
         <React.StrictMode>
-        <div className='Body2'>
-            {/* <NavBar /> */}
-            <div className="Contenido">
+            <div className={`mi-componente ${visible ? 'visible' : ''}`}>
+                <div className='Body2'>
+                    {/* <NavBar /> */}
+                    <div className="Contenido">
 
-                <VideoComponent />
+                        <VideoComponent />
 
-                <Footer />
+                        <Footer />
+                    </div>
+                </div>
             </div>
-        </div>
-    </React.StrictMode>
+        </React.StrictMode>
     )
 }
 
