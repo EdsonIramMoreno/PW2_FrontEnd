@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import '../assets/CSS/AdminStyle.css';
+import ArtistaImg from '../assets/img/ArtistaEjemplo.jpg'
+
 
 function AdminInfo() {
   const [isEditingNombre, setIsEditingNombre] = useState(false);
@@ -58,7 +60,7 @@ function AdminInfo() {
         </div>
         <div className="EditAcercaDe">
           <div className="EditHistoriaLeft">
-            <img src="ruta/a/la/imagen.jpg" alt="Imagen" />
+          <img src={ArtistaImg} alt="Artista" />
             {isEditingHistoria ? (
               <textarea
                 id="historia"

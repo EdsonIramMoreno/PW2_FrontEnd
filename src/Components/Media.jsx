@@ -26,8 +26,14 @@ function Media() {
                 <div className='Body2'>
                     {/* <NavBar /> */}
                     <div className="Contenido">
+                        <div className='Pag-name'>
+                            <h2>MEDIA</h2>
+                        </div>
 
-                        <VideoComponent />
+                        <div className='Margin-Pg'>
+                            <VideoComponent />
+                        </div>
+
 
                         <Footer />
                     </div>

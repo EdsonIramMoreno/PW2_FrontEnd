@@ -29,7 +29,7 @@ html {
 }
 
 .ClassNavBar {
-  padding: 20px;
+  padding-top: 20px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -102,8 +102,7 @@ html {
 }
 
 .Contenido {
-  padding: 15px;
-  height: 521px;
+  height: 543px;
   overflow-y: scroll;
 }
 
@@ -126,3 +125,20 @@ html {
 input[type="text"]::placeholder {
   letter-spacing: 10px;
 }
+
+.Pag-name {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  background-color: #141414;
+  margin-bottom: 5px;
+}
+
+.Pag-name h2 {
+  color: beige;
+  margin: 0px;
+}
+
+.Margin-Pg{
+  margin-top: 20px;
+  }

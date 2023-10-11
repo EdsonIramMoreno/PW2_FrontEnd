@@ -27,8 +27,11 @@ function Home() {
                 <div className='Body2'>
                 {/* <NavBar /> */}
                 <div className="Contenido">
+                    <div className='Pag-name'>
+                        <h2>HOME</h2>
+                    </div>
                     <div className="ColeccionNueva">
-                        <h1>NUEVA COLECCION</h1>
+                        <h2>NUEVA COLECCION</h2>
                         <h3><a href="#">IR AHORA</a></h3>
                     </div>
 

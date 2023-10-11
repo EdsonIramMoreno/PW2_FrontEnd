@@ -25,8 +25,12 @@ function Artwork() {
                 <div className='Body2'>
                     {/* <NavBar /> */}
                     <div className="Contenido">
-
-                        <ArtworkGrid />
+                    <div className='Pag-name'>
+                        <h2>ARTWORK</h2>
+                    </div>
+                    <div className='Margin-Pg'>
+                    <ArtworkGrid />
+                    </div>
 
                         <Footer />
                     </div>

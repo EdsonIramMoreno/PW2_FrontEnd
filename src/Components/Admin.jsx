@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Footer from './Footer';
 import AdminInfo from './AdmInfo';
+
 // import './assets/NavbarStyle.css'
 
 function Admin() {
@@ -23,6 +24,9 @@ function Admin() {
                 <div className='Body2'>
                     {/* <NavBar /> */}
                     <div className="Contenido">
+                        <div className='Pag-name'>
+                            <h2>ADMINISTRADOR</h2>
+                        </div>
                         <AdminInfo />
                         <Footer />
                     </div>

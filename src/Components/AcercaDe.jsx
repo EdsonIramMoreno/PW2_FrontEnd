@@ -27,6 +27,9 @@ function AcercaDe() {
                 <div className='Body2'>
                     {/* <NavBar /> */}
                     <div className="Contenido">
+                    <div className='Pag-name'>
+                        <h2>ACERCA DE</h2>
+                    </div>
                         <div className="Info">
                             <div className="FotoArtista">
                                 <img src={ArtistaImg} alt="Artista" />

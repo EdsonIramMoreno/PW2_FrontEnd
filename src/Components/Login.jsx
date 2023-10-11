@@ -71,7 +71,10 @@ function Login() {
         <div className='Body2'>
           {/* <NavBar /> */}
           <div className="Contenido">
-            <div className="Inicio">
+            <div className='Pag-name'>
+              <h2>INICIAR SESION</h2>
+            </div>
+            <div className="Inicio Margin-Pg">
               <div className="Mosaico">
                 <img src={MosaicoImage} alt="Mosaico" />
               </div>

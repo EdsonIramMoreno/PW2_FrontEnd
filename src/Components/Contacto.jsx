@@ -26,8 +26,11 @@ function Contacto() {
                 <div className='Body2'>
                     {/* <NavBar /> */}
                     <div className="Contenido">
+                    <div className='Pag-name'>
+                        <h2>CONTACTO</h2>
+                    </div>
 
-                        <div className="ContactoClass">
+                        <div className="ContactoClass Margin-Pg">
                             <div className="Siluetas">
                                 <img src={SiluetasImg} alt="Imagen" />
                             </div>
