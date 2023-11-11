@@ -22,7 +22,8 @@ function NavAdmin() {
          <li><Link to="/AcercaDeAd">ACERCA DE</Link></li>
          <li><Link to="/ArtworkAd">ARTWORK</Link></li>
          <li><Link to="/MediaAd">MEDIA</Link></li>
-       <li><Link to="/ContactoAd">CONTACTO</Link></li>
+         <li><Link to="/ContactoAd">CONTACTO</Link></li>
+         <li><Link to="/Administracion">admin</Link></li>
        </ul>
      </nav>
 

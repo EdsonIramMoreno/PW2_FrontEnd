@@ -4,28 +4,43 @@ import Esculturas from '../assets/img/Esculturas.jpg'
 import Mosaico from '../assets/img/Mosaico.png'
 import Contacto from '../assets/img/Contacto.png'
 
+import ObraComponent from '../Components/Obra.jsx'
+
 function ArtworkGrid() {
   return (
             <div className="Galeria">
 
-                <img src={Pinturas} alt="Grid" />
-                <img src={Esculturas} alt="Grid" />
-                <img src={Mosaico} alt="Grid" />
-                <img src={Contacto} alt="Grid" />
-                <img src={Pinturas} alt="Grid" />
-                <img src={Esculturas} alt="Grid" />
-                <img src={Mosaico} alt="Grid" />
-                <img src={Contacto} alt="Grid" />
-                <img src={Pinturas} alt="Grid" />
-                <img src={Pinturas} alt="Grid" />
-                <img src={Esculturas} alt="Grid" />
-                <img src={Mosaico} alt="Grid" />
-                <img src={Contacto} alt="Grid" />
-                <img src={Pinturas} alt="Grid" />
-                <img src={Esculturas} alt="Grid" />
-                <img src={Mosaico} alt="Grid" />
-                <img src={Contacto} alt="Grid" />
-                <img src={Pinturas} alt="Grid" />
+              <ObraComponent
+              name="Aaaa"
+              image={Pinturas}
+              id='1'/>
+
+              <ObraComponent
+              name="Aaaa"
+              image={Pinturas}
+              id='1'/>
+
+              <ObraComponent
+              name="Aaaa"
+              image={Pinturas}
+              id='1'/>
+
+              <ObraComponent
+              name="Aaaa"
+              image={Pinturas}
+              id='1'/>
+
+              <ObraComponent
+              name="Aaaa"
+              image={Pinturas}
+              id='1'/>
+
+              <ObraComponent
+              name="Aaaa"
+              image={Pinturas}
+              id='1'/>
+
+                
             </div>
 
   );

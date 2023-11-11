@@ -30,10 +30,7 @@ function Home() {
                     <div className='Pag-name'>
                         <h2>HOME</h2>
                     </div>
-                    <div className="ColeccionNueva">
-                        <h2>NUEVA COLECCION</h2>
-                        <h3><a href="#">IR AHORA</a></h3>
-                    </div>
+                    
 
                     <div class="ArteEscultura">
                         <div className="Imagen i">
@@ -52,7 +49,7 @@ function Home() {
                     <Footer />
                 </div>
             </div>
-                    </div>
+        </div>
 
 
         </React.StrictMode>
