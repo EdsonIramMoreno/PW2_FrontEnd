@@ -22,7 +22,6 @@ function AcercaDe() {
     }, []);
 
     return (
-        <React.StrictMode>
             <div className={`mi-componente ${visible ? 'visible' : ''}`}>
                 <div className='Body2'>
                     {/* <NavBar /> */}
@@ -41,12 +40,9 @@ function AcercaDe() {
                                     eligendi libero, qui corrupti tempore saepe a.</p>
                             </div>
                         </div>
-
-                        <Footer />
                     </div>
                 </div>
             </div>
-        </React.StrictMode>
     )
 }
 

@@ -20,7 +20,6 @@ function Artwork() {
     }, []);
 
     return (
-        <React.StrictMode>
             <div className={`mi-componente ${visible ? 'visible' : ''}`}>
                 <div className='Body2'>
                     {/* <NavBar /> */}
@@ -31,12 +30,9 @@ function Artwork() {
                     <div className='Margin-Pg'>
                     <ArtworkGrid />
                     </div>
-
-                        <Footer />
                     </div>
                 </div>
             </div>
-        </React.StrictMode>
     )
 }
 

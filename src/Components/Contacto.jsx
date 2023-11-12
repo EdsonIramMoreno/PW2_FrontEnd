@@ -21,9 +21,8 @@ function Contacto() {
     }, []);
 
     return (
-        <React.StrictMode>
             <div className={`mi-componente ${visible ? 'visible' : ''}`}>
-                <div className='Body2'>
+               
                     {/* <NavBar /> */}
                     <div className="Contenido">
                     <div className='Pag-name'>
@@ -43,12 +42,8 @@ function Contacto() {
                                 </form>
                             </div>
                         </div>
-
-                        <Footer />
                     </div>
-                </div>
             </div>
-        </React.StrictMode>
     )
 }
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 // import ReactDOM from 'react-dom';
 // import NavBar from './Navbar';
 import Footer from './Footer';
-import VideoComponent from './MediaComp';
+import MediaComp from './MediaComp';
 import '../assets/CSS//NavbarStyle.css'
 import '../assets/CSS/Media.css'
 
@@ -21,7 +21,6 @@ function Media() {
     }, []);
 
     return (
-        <React.StrictMode>
             <div className={`mi-componente ${visible ? 'visible' : ''}`}>
                 <div className='Body2'>
                     {/* <NavBar /> */}
@@ -31,15 +30,11 @@ function Media() {
                         </div>
 
                         <div className='Margin-Pg'>
-                            <VideoComponent />
+                            <MediaComp />
                         </div>
-
-
-                        <Footer />
                     </div>
                 </div>
             </div>
-        </React.StrictMode>
     )
 }
 

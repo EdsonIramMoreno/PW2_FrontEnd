@@ -22,7 +22,6 @@ function Home() {
     }, []);
 
     return (
-        <React.StrictMode>
                 <div className={`mi-componente ${visible ? 'visible' : ''}`}>
                 <div className='Body2'>
                 {/* <NavBar /> */}
@@ -46,13 +45,10 @@ function Home() {
                             <img src={EsculturasImg} alt="Esculturas" />
                         </div>
                     </div>
-                    <Footer />
                 </div>
             </div>
         </div>
 
-
-        </React.StrictMode>
     );
 }
 

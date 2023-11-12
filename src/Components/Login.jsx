@@ -66,7 +66,6 @@ function Login() {
   }, []);
 
   return (
-    <React.StrictMode>
       <div className={`mi-componente ${visible ? 'visible' : ''}`}>
         <div className='Body2'>
           {/* <NavBar /> */}
@@ -107,7 +106,6 @@ function Login() {
           </div>
         </div>
       </div>
-    </React.StrictMode>
   );
 }
 
