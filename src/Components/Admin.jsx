@@ -28,7 +28,7 @@ function Admin() {
                             <h2>ADMINISTRADOR</h2>
                         </div>
                         <AdminInfo />
-                        <Footer />
+                        {/* <Footer /> */}
                     </div>
                 </div>
             </div>

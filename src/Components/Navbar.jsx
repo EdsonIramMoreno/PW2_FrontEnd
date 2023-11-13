@@ -21,7 +21,7 @@ function NavBar() {
   return (
     <Router>
       <nav className="ClassNavBar">
-        <li className='NombreNav'><Link to="/Home">NOMBRE</Link></li>
+        <li className='NombreNav'><Link to="/LogAdmin">NOMBRE</Link></li>
         <ul className="menu">
           <li><Link to="/Home">HOME</Link></li>
           <li><Link to="/AcercaDe">ACERCA DE</Link></li>
@@ -29,6 +29,7 @@ function NavBar() {
           <li><Link to="/Media">MEDIA</Link></li>
           <li><Link to="/Contacto">CONTACTO</Link></li>
           {/* Eliminar despues */}
+          <li><Link to="/Administracion">admin</Link></li>
           
         </ul>
       </nav>
