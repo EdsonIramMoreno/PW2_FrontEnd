@@ -22,9 +22,9 @@ function Contacto() {
 
     return (
             <div className={`mi-componente ${visible ? 'visible' : ''}`}>
-               
-                    {/* <NavBar /> */}
-                    <div className="Contenido">
+                <div className='Body2'>
+                                    {/* <NavBar /> */}
+                                    <div className="Contenido">
                     <div className='Pag-name'>
                         <h2>CONTACTO</h2>
                     </div>
@@ -43,6 +43,7 @@ function Contacto() {
                             </div>
                         </div>
                     </div>
+               </div>
             </div>
     )
 }

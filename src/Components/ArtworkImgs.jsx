@@ -3,6 +3,7 @@ import Pinturas from '../assets/img/Pinturas.jpg'
 import Esculturas from '../assets/img/Esculturas.jpg'
 import Mosaico from '../assets/img/Mosaico.png'
 import Contacto from '../assets/img/Contacto.png'
+import Patron from '../assets/img/Patron.png'
 
 import ObraComponent from '../Components/Obra.jsx'
 
@@ -11,34 +12,34 @@ function ArtworkGrid() {
             <div className="Galeria">
 
               <ObraComponent
-              name="Aaaa"
+              name="Ejemplo 1"
               image={Pinturas}
               id='1'/>
 
               <ObraComponent
-              name="Aaaa"
-              image={Pinturas}
-              id='1'/>
+              name="Ejemplo 2"
+              image={Esculturas}
+              id='2'/>
 
               <ObraComponent
-              name="Aaaa"
-              image={Pinturas}
-              id='1'/>
+              name="Ejemplo 3"
+              image={Mosaico}
+              id='3'/>
 
               <ObraComponent
-              name="Aaaa"
-              image={Pinturas}
-              id='1'/>
+              name="Ejemplo 4"
+              image={Contacto}
+              id='4'/>
 
               <ObraComponent
-              name="Aaaa"
-              image={Pinturas}
-              id='1'/>
+              name="Ejemplo 5"
+              image={Patron}
+              id='5'/>
 
               <ObraComponent
-              name="Aaaa"
+              name="Ejemplo 6"
               image={Pinturas}
-              id='1'/>
+              id='6'/>
 
                 
             </div>
