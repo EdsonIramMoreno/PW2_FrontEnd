@@ -5,8 +5,8 @@ import AcercaDe from './AcercaDe';
 import Artwork from './Artwork';
 import Media from './Media';
 import Contacto from './Contacto';
-import Admin from './AdminComponents/Admin.jsx';
-import ObraDetails from './ObraDetails'
+import Admin from './Admin';
+import Details from './ObraDetails'
 
 import {
   BrowserRouter as Router,
@@ -42,7 +42,7 @@ function NavBar() {
         <Route path="/Contacto" element={<Contacto />}></Route>
         
         
-        <Route path="/details/:id" element={<ObraDetails />}></Route>
+        <Route path="/details/:id/:name/:image" element={<Details />} />
 
         {/* Eliminar despues */}
         <Route path="/Administracion" element={<Admin />}></Route>

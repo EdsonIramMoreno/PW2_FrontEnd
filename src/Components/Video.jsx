@@ -6,7 +6,6 @@ function Video(props) {
     <div className="video-container">
       <p className='titleVideo'>{props.title}</p>
       <iframe
-        src={props.src}
         title={props.title}
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
