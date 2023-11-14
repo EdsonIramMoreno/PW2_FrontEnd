@@ -5,7 +5,7 @@ import AcercaDe from './AcercaDe';
 import Artwork from './Artwork';
 import Media from './Media';
 import Contacto from './Contacto';
-import Admin from './Admin';
+import Admin from './AdminComponents/Admin';
 import Details from './ObraDetails'
 
 import {
