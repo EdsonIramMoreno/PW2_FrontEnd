@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import '../assets/CSS/AdminStyle.css';
-import ArtistaImg from '../assets/img/ArtistaEjemplo.jpg';
-import AgregarArte from '../assets/img/AgregarArte.jpg';
-import NavAdmin from './NavAdmin';
+import '../../assets/CSS/AdminStyle.css';
+import ArtistaImg from '../../assets/img/ArtistaEjemplo.jpg';
+import AgregarArte from '../../assets/img/AgregarArte.jpg';
 
 function AdminInfo() {
   const [isEditingNombre, setIsEditingNombre] = useState(false);
@@ -12,7 +11,6 @@ function AdminInfo() {
   const [historia, setHistoria] = useState('');
   const [historiaEditada, setHistoriaEditada] = useState('');
   const [artistaImage, setArtistaImage] = useState(null);
-  const [artworkImage, setArtworkImage] = useState(null);
 
   const handleEditNombreClick = () => {
     setIsEditingNombre(true);
@@ -116,37 +114,7 @@ function AdminInfo() {
               <button onClick={handleEditHistoriaClick}>Editar Historia</button>
             )}
           </div>
-          <div className="EditArtworkiaLeft">
-            <h2>Artwork</h2>
-            <div className='Imagenes-card'>
-            <div className="GaleriaAdm">
-              <label htmlFor="artworkImageInput">
-                <img
-                  src={artworkImage || AgregarArte}
-                  alt="Arte"
-                  className="arte-image"
-                />
-              </label>
-              <input
-                type="file"
-                id="artworkImageInput"
-                accept="image/*"
-                style={{ display: 'none' }}
-                onChange={handleArtworkImageChange}
-              />
-            </div>
-            <div className="ArtworkGallery">
-              {artworkImages.map((image, index) => (
-                <img
-                  key={index}
-                  src={image}
-                  alt={`Arte ${index}`}
-                  className="arte-image"
-                />
-              ))}
-            </div>
-          </div>
-            </div>
+          
 
         </div>
       </div>

@@ -1,36 +1,61 @@
 import React, { useEffect, useState } from 'react';
 import Footer from '../Footer';
-import AdminInfo from '../AdmInfo';
+import AdminInfo from '../AdminComponents/AdminInfo';
+import AddArtWork from '../AdminComponents/AddArtWork';
+import '../../assets/CSS/Admin.css'; // Make sure to include your CSS file for styling
+
 function Admin() {
-    const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const [menuVisibleAcercaDe, setmenuVisibleAcercaDe] = useState(true);
+  const [menuVisibleAddArtWork, setmenuVisibleAddArtWork] = useState(true);
 
-    useEffect(() => {
-        // Simula una demora antes de mostrar el componente
-        const timeout = setTimeout(() => {
-            setVisible(true);
-        }, 100); // Cambia esto al tiempo de carga deseado
+  useEffect(() => {
+    // Simulate a delay before showing the component
+    const timeout = setTimeout(() => {
+      setVisible(true);
+    }, 100);
 
-        return () => {
-            clearTimeout(timeout);
-        };
-    }, []);
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, []);
 
-    return (
-        <React.StrictMode>
-            <div className={`mi-componente ${visible ? 'visible' : ''}`}>
-                <div className='Body2'>
-                    {/* <NavBar /> */}
-                    <div className="Contenido">
-                        <div className='Pag-name'>
-                            <h2>ADMINISTRADOR</h2>
-                        </div>
-                        <AdminInfo />
-                        <Footer />
-                    </div>
-                </div>
+  const toggleMenuAcercaDe = () => {
+    setmenuVisibleAcercaDe(!menuVisibleAcercaDe);
+  };
+
+  const toggleMenuAddArtWork= () => {
+    setmenuVisibleAddArtWork(!menuVisibleAddArtWork);
+  };
+
+  return (
+    <div className={`mi-componente ${visible ? 'visible' : ''}`}>
+      <div className='Body2'>
+        <div className="Contenido">
+          <div className='Pag-name'>
+            <h2>ADMINISTRADOR</h2>
+          </div>
+          <button className="menu-toggle" onClick={toggleMenuAcercaDe}>
+            {menuVisibleAcercaDe ? 'Collapse Menu Acerca De' : 'Expand Menu Acerca De'}
+          </button>
+          {menuVisibleAcercaDe && (
+            <div className="collapsible-menu">
+              <AdminInfo />
             </div>
-        </React.StrictMode>
-    );
+          )}
+          <button className="menu-toggle" onClick={toggleMenuAddArtWork}>
+            {menuVisibleAddArtWork ? 'Collapse Menu AddArtWork' : 'Expand Menu AddArtWork'}
+          </button>
+          {menuVisibleAddArtWork && (
+            <div className="collapsible-menu">
+              <AddArtWork />
+            </div>
+          )}
+          <Footer />
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default Admin;

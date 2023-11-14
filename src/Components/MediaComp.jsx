@@ -1,5 +1,6 @@
 import React from 'react';
 import Video from './Video.jsx'
+import '../assets/CSS/Video.css';
 
 function VideoComponent() {
   return (

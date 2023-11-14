@@ -6,52 +6,8 @@ import MosaicoImage from '../assets/img/Mosaico.png';
 import swal from 'sweetalert';
 
 function Login() {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    try {
-
-      const data = {
-        "username": username,
-        "password": password
-      };
-
-      const response = await fetch('http://localhost:3000/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-
-        body: JSON.stringify(data),
-      });
-      // Handle successful login here, e.g., store the token and redirect
-      // For now, just logging the token
-      console.log('Token:', response.status);
-
-      if (response.status === 200) {
-        // Handle successful login here
-        const token = await response.text();
-        console.log('Token:', token);
-        // Redirect or store the token as needed
-
-        // For demonstration purposes, show a success message
-        swal('Success!', 'Login successful', 'success');
-      } else if (response.status === 401) {
-        // Handle unauthorized (authentication failed) here
-        console.error('Authentication failed');
-        swal('Oops!', 'Usuario o clave equivocados', 'error');
-      }
-
-    } catch (error) {
-      // Handle authentication error here, e.g., show an error message to the user
-      console.error('Authentication error:', error);
-      swal("Oops!", "Clave equivocada", "error");
-    }
-  };
-
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -64,6 +20,53 @@ function Login() {
       clearTimeout(timeout);
     };
   }, []);
+
+  const isEmailValid = (emailVal) => {
+    // Regular expression for basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(emailVal);
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if (!isEmailValid(email)) {
+      swal('Oops!', 'Por favor, ingrese un correo electrónico válido.', 'error');
+      return;
+    }
+
+    if (!password) {
+      swal('Oops!', 'Por favor, ingrese una contraseña.', 'error');
+      return;
+    }
+
+    try {
+
+      const data = {
+        email: email,
+        password: password,
+      };
+
+      const response = await fetch('http://localhost:3000/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.status === 200) {
+        swal('Success!', 'Inicio de sesión exitoso', 'success');
+        // Handle successful login here, e.g., redirect to another page
+      } else if (response.status === 401) {
+        console.error('Authentication failed');
+        swal('Oops!', 'Usuario o clave equivocados', 'error');
+      }
+    } catch (error) {
+      console.error('Authentication error:', error);
+      swal('Oops!', 'Error en la autenticación', 'error');
+    }
+  }; 
 
   return (
       <div className={`mi-componente ${visible ? 'visible' : ''}`}>
@@ -85,9 +88,9 @@ function Login() {
                       type="text"
                       name=""
                       id=""
-                      placeholder="Usuario"
-                      value={username}
-                      onChange={(e) => setUsername(e.target.value)}
+                      placeholder="Correo"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                     />
                     <input
                       type="password"
