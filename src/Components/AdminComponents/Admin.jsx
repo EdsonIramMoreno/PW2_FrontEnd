@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import Footer from '../Footer';
 import AdminInfo from '../AdminComponents/AdminInfo';
 import AddArtWork from '../AdminComponents/AddArtWork';
-import '../../assets/CSS/Admin.css'; // Make sure to include your CSS file for styling
+import AddMedia from '../AdminComponents/AddMedia';
+import AddRedSocial from '../AdminComponents/AddRedSocial';
+import CorreoContacto from '../AdminComponents/CorreoContacto';
+import '../../assets/CSS/Admin.css';
 
 function Admin() {
   const [visible, setVisible] = useState(false);
-  const [menuVisibleAcercaDe, setmenuVisibleAcercaDe] = useState(true);
-  const [menuVisibleAddArtWork, setmenuVisibleAddArtWork] = useState(true);
+  const [menuVisibleAcercaDe, setmenuVisibleAcercaDe] = useState(false);
+  const [menuVisibleAddArtWork, setmenuVisibleAddArtWork] = useState(false);
+  const [menuVisibleAddMedia, setmenuVisibleAddMedia] = useState(false);
+  const [menuVisibleRedSocial, setmenuVisibleRedSocial] = useState(false);
+  const [menuVisibleCorreoContacto, setmenuVisibleCorreoContacto] = useState(false);
 
   useEffect(() => {
     // Simulate a delay before showing the component
@@ -24,8 +29,20 @@ function Admin() {
     setmenuVisibleAcercaDe(!menuVisibleAcercaDe);
   };
 
-  const toggleMenuAddArtWork= () => {
+  const toggleMenuAddArtWork = () => {
     setmenuVisibleAddArtWork(!menuVisibleAddArtWork);
+  };
+
+  const toggleMenuAddMedia = () => {
+    setmenuVisibleAddMedia(!menuVisibleAddMedia);
+  };
+
+  const toggleMenuRedSocial = () => {
+    setmenuVisibleRedSocial(!menuVisibleRedSocial);
+  };
+
+  const toggleMenuCorreoContacto = () => {
+    setmenuVisibleCorreoContacto(!menuVisibleCorreoContacto);
   };
 
   return (
@@ -51,7 +68,30 @@ function Admin() {
               <AddArtWork />
             </div>
           )}
-          <Footer />
+          <button className="menu-toggle" onClick={toggleMenuAddMedia}>
+            {menuVisibleAddMedia ? 'Collapse Menu AddMedia' : 'Expand Menu AddMedia'}
+          </button>
+          {menuVisibleAddMedia && (
+            <div className="collapsible-menu">
+              <AddMedia />
+            </div>
+          )}
+          <button className="menu-toggle" onClick={toggleMenuRedSocial}>
+            {menuVisibleRedSocial ? 'Collapse Menu Red Social' : 'Expand Menu Red Social'}
+          </button>
+          {menuVisibleRedSocial && (
+            <div className="collapsible-menu">
+              <AddRedSocial />
+            </div>
+          )}
+          <button className="menu-toggle" onClick={toggleMenuCorreoContacto}>
+            {menuVisibleCorreoContacto ? 'Collapse Menu Correo Contacto' : 'Expand Menu Correo Contacto'}
+          </button>
+          {menuVisibleCorreoContacto && (
+            <div className="collapsible-menu">
+              <CorreoContacto />
+            </div>
+          )}
         </div>
       </div>
     </div>

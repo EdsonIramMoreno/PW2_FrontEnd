@@ -24,7 +24,6 @@ function Details() {
   return (
     <div className={`mi-componente ${visible ? 'visible' : ''}`}>
       <div className='Body2'>
-        {/* <NavBar /> */}
         <div className="Contenido">
           <div className='Pag-name'>
             <h2>{name}</h2>
@@ -35,6 +34,7 @@ function Details() {
             <div className="Image-Artwork">
               <img src={image} alt={name} />
             </div>
+
             <div className='Card-Descript'>
               <p>Parrafo Descriptivo de la obra</p>
             </div>

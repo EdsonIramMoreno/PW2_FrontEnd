@@ -11,25 +11,25 @@ function Home() {
     const [visible, setVisible] = useState(false);
 
     useEffect(() => {
-      // Simula una demora antes de mostrar el componente
-      const timeout = setTimeout(() => {
-        setVisible(true);
-      }, 100); // Cambia esto al tiempo de carga deseado
-  
-      return () => {
-        clearTimeout(timeout);
-      };
+        // Simula una demora antes de mostrar el componente
+        const timeout = setTimeout(() => {
+            setVisible(true);
+        }, 100); // Cambia esto al tiempo de carga deseado
+
+        return () => {
+            clearTimeout(timeout);
+        };
     }, []);
 
     return (
-                <div className={`mi-componente ${visible ? 'visible' : ''}`}>
-                <div className='Body2'>
+        <div className={`mi-componente ${visible ? 'visible' : ''}`}>
+            <div className='Body2'>
                 {/* <NavBar /> */}
                 <div className="Contenido">
                     <div className='Pag-name'>
                         <h2>HOME</h2>
                     </div>
-                    
+
 
                     <div class="ArteEscultura">
                         <div className="Imagen i">

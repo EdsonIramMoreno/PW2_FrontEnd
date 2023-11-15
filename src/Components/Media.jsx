@@ -21,20 +21,20 @@ function Media() {
     }, []);
 
     return (
-            <div className={`mi-componente ${visible ? 'visible' : ''}`}>
-                <div className='Body2'>
-                    {/* <NavBar /> */}
-                    <div className="Contenido">
-                        <div className='Pag-name'>
-                            <h2>MEDIA</h2>
-                        </div>
+        <div className={`mi-componente ${visible ? 'visible' : ''}`}>
+            <div className='Body2'>
+                {/* <NavBar /> */}
+                <div className="Contenido">
+                    <div className='Pag-name'>
+                        <h2>MEDIA</h2>
+                    </div>
 
-                        <div className='Margin-Pg'>
-                            <MediaComp />
-                        </div>
+                    <div className='Margin-Pg'>
+                        <MediaComp />
                     </div>
                 </div>
             </div>
+        </div>
     )
 }
 

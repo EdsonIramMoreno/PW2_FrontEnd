@@ -20,19 +20,19 @@ function Artwork() {
     }, []);
 
     return (
-            <div className={`mi-componente ${visible ? 'visible' : ''}`}>
-                <div className='Body2'>
-                    {/* <NavBar /> */}
-                    <div className="Contenido">
+        <div className={`mi-componente ${visible ? 'visible' : ''}`}>
+            <div className='Body2'>
+                {/* <NavBar /> */}
+                <div className="Contenido">
                     <div className='Pag-name'>
                         <h2>ARTWORK</h2>
                     </div>
                     <div className='Margin-Pg'>
-                    <ArtworkGrid />
-                    </div>
+                        <ArtworkGrid />
                     </div>
                 </div>
             </div>
+        </div>
     )
 }
 

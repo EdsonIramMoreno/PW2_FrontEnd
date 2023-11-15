@@ -66,49 +66,49 @@ function Login() {
       console.error('Authentication error:', error);
       swal('Oops!', 'Error en la autenticación', 'error');
     }
-  }; 
+  };
 
   return (
-      <div className={`mi-componente ${visible ? 'visible' : ''}`}>
-        <div className='Body2'>
-          {/* <NavBar /> */}
-          <div className="Contenido">
-            <div className='Pag-name'>
-              <h2>INICIAR SESION</h2>
-            </div>
-            <div className="Inicio Margin-Pg">
-              <div className="Mosaico">
-                <img src={MosaicoImage} alt="Mosaico" />
-              </div>
-              <div className="Login">
-                <h1>Iniciar Sesión</h1>
-                <form onSubmit={handleSubmit}>
-                  <div className="INPUTS">
-                    <input
-                      type="text"
-                      name=""
-                      id=""
-                      placeholder="Correo"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                    />
-                    <input
-                      type="password"
-                      name=""
-                      id=""
-                      placeholder="Clave"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                    />
-                  </div>
-                  <input type="submit" value="Iniciar" />
-                </form>
-              </div>
-            </div>
-            <Footer />
+    <div className={`mi-componente ${visible ? 'visible' : ''}`}>
+      <div className='Body2'>
+        {/* <NavBar /> */}
+        <div className="Contenido">
+          <div className='Pag-name'>
+            <h2>INICIAR SESION</h2>
           </div>
+          <div className="Inicio Margin-Pg">
+            <div className="Mosaico">
+              <img src={MosaicoImage} alt="Mosaico" />
+            </div>
+            <div className="Login">
+              <h1>Iniciar Sesión</h1>
+              <form onSubmit={handleSubmit}>
+                <div className="INPUTS">
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    placeholder="Correo"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                  <input
+                    type="password"
+                    name=""
+                    id=""
+                    placeholder="Clave"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                </div>
+                <input type="submit" value="Iniciar" />
+              </form>
+            </div>
+          </div>
+          <Footer />
         </div>
       </div>
+    </div>
   );
 }
 
