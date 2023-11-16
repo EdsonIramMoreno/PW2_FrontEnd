@@ -20,8 +20,9 @@ import '../assets/CSS/NavbarStyle.css'
 function NavBar() {
   return (
     <Router>
+      
       <nav className="ClassNavBar">
-        <li className='NombreNav'><Link to="/Home">NOMBRE</Link></li>
+        <li className='NombreNav'><Link to="/Administracion">NOMBRE</Link></li>
         <ul className="menu">
           <li><Link to="/Home">HOME</Link></li>
           <li><Link to="/AcercaDe">ACERCA DE</Link></li>

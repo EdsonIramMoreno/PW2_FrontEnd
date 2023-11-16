@@ -44,8 +44,9 @@ function AddArtWork() {
   };
 
   return (
+    <div className='AdminInfo-card'>
     <div className="EditArtworkiaLeft">
-      <h2>Artwork</h2>
+      <div className='Artwork-card'>
       <div className="Imagenes-card">
         <div className="GaleriaAdm">
           <input
@@ -83,8 +84,11 @@ function AddArtWork() {
           style={{ resize: 'both', overflow: 'auto', minHeight: '100px' }}
         ></textarea>
 
-        <button onClick={handleGuardarClick}>Guardar</button>
+        <button className="BotonAddArtwork" onClick={handleGuardarClick}>Guardar</button>
       </div>
+      </div>
+
+    </div>
     </div>
   );
 }
