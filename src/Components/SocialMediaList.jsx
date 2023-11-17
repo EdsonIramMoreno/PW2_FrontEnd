@@ -1,23 +1,24 @@
 import React from 'react';
 import SocialMediaItem from './SocialMediaItem'; // Adjust the path
+import FaceImg from '../assets/img/Facebook.jpg';
 
 function SocialMediaList() {
   // Example data
   const socialMediaData = [
     {
-      icon: '',
-      name: 'Nombre',
+      icon: <img src={FaceImg} alt="Artista" />,
+      name: 'Facebook',
       url: 'https://www.facebook.com/',
     },
     {
       icon: '',
-      name: 'Nombre',
+      name: 'X',
       url: 'https://twitter.com/',
     },
     {
       icon: '',
-      name: 'Nombre',
-      url: 'https://twitter.com/',
+      name: 'Instagram',
+      url: 'https://Instagam.com/',
     }
   ];
 

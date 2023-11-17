@@ -93,7 +93,7 @@ if(mode == 'Modificar'){
   return (
     <div className='AdminInfo-card'>
       <div className="EditArtworkiaLefta">
-        <div>
+        <div className='Radios'>
           <label>
             <input
               type="radio"
@@ -101,7 +101,7 @@ if(mode == 'Modificar'){
               checked={mode === 'Agregar'}
               onChange={() => handleMode('Agregar')}
             />
-            Agregar
+            <span>Agregar</span>
           </label>
           <label>
             <input
@@ -110,7 +110,7 @@ if(mode == 'Modificar'){
               checked={mode === 'Modificar'}
               onChange={() => handleMode('Modificar')}
             />
-            Modificar
+            <span>Modificar</span>
           </label>
         </div>
 
@@ -156,7 +156,7 @@ if(mode == 'Modificar'){
               </>
             ) : (
               <>
-                <label htmlFor="selectRedSocial">Seleccionar Red Social:</label>
+                {/* <label htmlFor="selectRedSocial">Seleccionar Red Social:</label> */}
                 <select
                   id="selectRedSocial"
                   onChange={(e) => loadInfo(e.target.value)}

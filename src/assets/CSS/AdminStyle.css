@@ -269,4 +269,19 @@ img {
 
 .EditArtworkiaLefta{
   display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
+
+.Radios{
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  flex-direction: row;
+}
+
+.Radios label{
+  display: flex;
+  /* margin-bottom: 5px; */
 }
