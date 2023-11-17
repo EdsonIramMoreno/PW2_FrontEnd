@@ -49,8 +49,9 @@ function AddRedSocial() {
   };
 
   return (
-    <div className="EditArtworkiaLeft">
-      <h2>Red Social</h2>
+    <div className='AdminInfo-card'>
+      
+    <div className="EditArtworkiaLefta">
       <div className="Imagenes-card">
         <div className="GaleriaAdm">
 
@@ -87,10 +88,13 @@ function AddRedSocial() {
               onChange={(e) => setRedSocialURL(e.target.value)}
             />
 
-            <button onClick={handleGuardarClick}>Guardar</button>
+            <button className="BotonAddArtwork" onClick={handleGuardarClick}>Guardar</button>
           </div>
         </div>
       </div>
+    </div>
+
+
     </div>
   );
 }

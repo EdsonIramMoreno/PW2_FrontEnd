@@ -28,8 +28,8 @@ function AddMedia() {
   };
 
   return (
+    <div className='AdminInfo-card'>
     <div className="AddMediaContainer">
-      <h2>Media</h2>
 
       <div className="MediaDetails">
         <label htmlFor="mediaName">Nombre del video:</label>
@@ -48,9 +48,11 @@ function AddMedia() {
           onChange={(e) => setURL(e.target.value)}
         />
 
-        <button onClick={handleGuardarClick}>Guardar</button>
+        <button className="BotonAddArtwork" onClick={handleGuardarClick}>Guardar</button>
       </div>
     </div>
+    </div>
+
   );
 }
 
