@@ -13,6 +13,11 @@ function SocialMediaList() {
       icon: '',
       name: 'Nombre',
       url: 'https://twitter.com/',
+    },
+    {
+      icon: '',
+      name: 'Nombre',
+      url: 'https://twitter.com/',
     }
   ];
 

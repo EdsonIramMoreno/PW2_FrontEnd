@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import AdminInfo from '../AdminComponents/AdminInfo';
-import AddArtWork from '../AdminComponents/AddArtWork';
-import AddMedia from '../AdminComponents/AddMedia';
-import AddRedSocial from '../AdminComponents/AddRedSocial';
+import ArtWorkAdmin from '../AdminComponents/ArtWorkAdmin';
+import MediaAdmin from './MediaAdmin';
+import RedSocialAdmin from './RedSocialAdmin';
 import CorreoContacto from '../AdminComponents/CorreoContacto';
 import '../../assets/CSS/Admin.css';
 
@@ -10,8 +10,8 @@ function Admin() {
   const [visible, setVisible] = useState(false);
 
   const [menuVisibleAcercaDe, setmenuVisibleAcercaDe] = useState(false);
-  const [menuVisibleAddArtWork, setmenuVisibleAddArtWork] = useState(false);
-  const [menuVisibleAddMedia, setmenuVisibleAddMedia] = useState(false);
+  const [menuVisibleArtWorkAdmin, setmenuVisibleArtWorkAdmin] = useState(false);
+  const [menuVisibleMediaAdmin, setmenuVisibleMediaAdmin] = useState(false);
   const [menuVisibleRedSocial, setmenuVisibleRedSocial] = useState(false);
   const [menuVisibleCorreoContacto, setmenuVisibleCorreoContacto] = useState(false);
 
@@ -38,8 +38,8 @@ function Admin() {
   const handleMenuToggle = (menuSetter, isVisibleState, sectionName) => {
     // Oculta todos los menús
     setmenuVisibleAcercaDe(false);
-    setmenuVisibleAddArtWork(false);
-    setmenuVisibleAddMedia(false);
+    setmenuVisibleArtWorkAdmin(false);
+    setmenuVisibleMediaAdmin(false);
     setmenuVisibleRedSocial(false);
     setmenuVisibleCorreoContacto(false);
 
@@ -47,7 +47,7 @@ function Admin() {
     menuSetter(!isVisibleState);
 
     // Actualiza la sección actual
-    setCurrentSection(sectionName);
+    setCurrentSection(isVisibleState ? 'ADMINISTRADOR' : sectionName);
   };
 
   return (
@@ -66,15 +66,15 @@ function Admin() {
             />
             <hr/>
             <MenuToggle
-              onClick={() => handleMenuToggle(setmenuVisibleAddArtWork, menuVisibleAddArtWork, 'ArtWork')}
-              isVisible={menuVisibleAddArtWork}
+              onClick={() => handleMenuToggle(setmenuVisibleArtWorkAdmin, menuVisibleArtWorkAdmin, 'ArtWork')}
+              isVisible={menuVisibleArtWorkAdmin}
               buttonText="ArtWork"
               sectionName="ADMINISTRADOR - ARTWORK"
             />
             <hr/>          
             <MenuToggle
-              onClick={() => handleMenuToggle(setmenuVisibleAddMedia, menuVisibleAddMedia, 'Media')}
-              isVisible={menuVisibleAddMedia}
+              onClick={() => handleMenuToggle(setmenuVisibleMediaAdmin, menuVisibleMediaAdmin, 'Media')}
+              isVisible={menuVisibleMediaAdmin}
               buttonText="Media"
               sectionName="ADMINISTRADOR - MEDIA"
             />
@@ -96,9 +96,9 @@ function Admin() {
           </div>
 
           {menuVisibleAcercaDe && <AdminInfo />}
-          {menuVisibleAddArtWork && <AddArtWork />}
-          {menuVisibleAddMedia && <AddMedia />}
-          {menuVisibleRedSocial && <AddRedSocial />}
+          {menuVisibleArtWorkAdmin && <ArtWorkAdmin />}
+          {menuVisibleMediaAdmin && <MediaAdmin />}
+          {menuVisibleRedSocial && <RedSocialAdmin />}
           {menuVisibleCorreoContacto && <CorreoContacto />}
         </div>
       </div>

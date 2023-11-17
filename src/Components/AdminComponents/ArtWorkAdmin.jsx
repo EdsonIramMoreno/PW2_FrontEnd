@@ -3,7 +3,7 @@ import '../../assets/CSS/AdminStyle.css';
 import AgregarArte from '../../assets/img/AgregarArte.jpg';
 import swal from 'sweetalert';
 
-function AddArtWork() {
+function ArtWorkAdmin() {
   const [artworkImage, setArtworkImage] = useState(null);
   const [artworkName, setArtworkName] = useState('');
   const [artworkDescription, setArtworkDescription] = useState('');
@@ -93,4 +93,4 @@ function AddArtWork() {
   );
 }
 
-export default AddArtWork;
+export default ArtWorkAdmin;

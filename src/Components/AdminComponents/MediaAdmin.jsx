@@ -3,7 +3,7 @@ import '../../assets/CSS/AdminStyle.css';
 import AgregarArte from '../../assets/img/AgregarArte.jpg';
 import swal from 'sweetalert';
 
-function AddMedia() {
+function MediaAdmin() {
   const [mediaName, setMediaName] = useState('');
   const [url, setURL] = useState('');
 
@@ -56,4 +56,4 @@ function AddMedia() {
   );
 }
 
-export default AddMedia;
+export default MediaAdmin;
