@@ -6,7 +6,7 @@ function SocialMediaList() {
   // Example data
   const socialMediaData = [
     {
-      icon: <img src={FaceImg} alt="Artista" />,
+      icon: {FaceImg},
       name: 'Facebook',
       url: 'https://www.facebook.com/',
     },

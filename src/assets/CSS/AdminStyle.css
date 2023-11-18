@@ -285,3 +285,14 @@ img {
   display: flex;
   /* margin-bottom: 5px; */
 }
+
+#selectRedSocial{
+  background-color: #ffe8ce;
+  color: black;
+  padding: 10px;
+  border-radius: 2px;
+}
+
+#selectRedSocial:hover {
+  background-color: #ffcd94;
+}
