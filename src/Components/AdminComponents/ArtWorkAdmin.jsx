@@ -10,6 +10,20 @@ function ArtWorkAdmin() {
   const [mode, setMode] = useState('Agregar');
   const [isFieldDisabled, setisFieldDisabled] = useState(false);
 
+  const handleMode = (mode) => {
+    setMode(mode);
+
+    setArtworkName('');
+    setArtworkDescription('');
+    setArtworkImage(null);
+
+    if (mode === 'Modificar') {
+      setisFieldDisabled(true);
+    } else {
+      setisFieldDisabled(false);
+    }
+  };
+
   const handleArtworkImageChange = (event) => {
     const selectedImage = event.target.files[0];
 
@@ -87,16 +101,23 @@ function ArtWorkAdmin() {
     });
   };
 
+  const loadInfo = (id) => {
+    if (id != '0') {
+      setArtworkName(id);
+      setisFieldDisabled(false);
+    }
+  };
+
   return (
     <div className='AdminInfo-card'>
-      <div className="EditArtworkiaLeft">
+      <div className="AddMediaContainer">
         <div className="Radios">
           <label>
             <input
               type="radio"
               value="Agregar"
               checked={mode === 'Agregar'}
-              onChange={() => setMode('Agregar')}
+              onChange={() => handleMode('Agregar')}
             />
             <span>Agregar</span>
           </label>
@@ -105,98 +126,118 @@ function ArtWorkAdmin() {
               type="radio"
               value="Modificar"
               checked={mode === 'Modificar'}
-              onChange={() => setMode('Modificar')}
+              onChange={() => handleMode('Modificar')}
             />
             <span>Modificar</span>
           </label>
+
+
         </div>
+
         <div className='Artwork-card'>
-          <div className="Imagenes-card">
-            <div className="GaleriaAdm">
-              <input
-                type="file"
-                id="artworkImageInput"
-                accept="image/*"
-                onChange={handleArtworkImageChange}
-                style={{ display: 'none' }}
-              />
-              <label htmlFor="artworkImageInput" className="file-input-label">
-                <img
-                  src={artworkImage || AgregarArte}
-                  alt="Arte"
-                  className="arte-image"
-                />
-              </label>
-            </div>
-          </div>
 
           {mode === 'Agregar' ? (
-            <div className="ArtworkDetails">
-              <label htmlFor="artworkName">Nombre de la Obra:</label>
-              <input
-                type="text"
-                id="artworkName"
-                value={artworkName}
-                onChange={(e) => setArtworkName(e.target.value)}
-              />
-
-              <label>Descripción de la Obra:</label>
-              <textarea
-                id="artworkDescription"
-                value={artworkDescription}
-                onChange={(e) => setArtworkDescription(e.target.value)}
-                style={{ resize: 'both', overflow: 'auto', minHeight: '100px' }}
-              ></textarea>
-
-              <button className="BotonAddArtwork" onClick={handleGuardarClick}>Guardar</button>
-            </div>
-          ) : (
-            <div className="">
-
-              <div className='ArtworkDetail'>
-              <select id="selectRedSocial" className="SelectRedSocial">
-                <option value="obra1">Obra 1</option>
-                <option value="obra2">Obra 2</option>
-              </select>
+            <>
+              <div className="Imagenes-card">
+                <div className="GaleriaAdm">
+                  <input
+                    type="file"
+                    id="artworkImageInput"
+                    accept="image/*"
+                    onChange={handleArtworkImageChange}
+                    style={{ display: 'none' }}
+                  />
+                  <label htmlFor="artworkImageInput" className="file-input-label">
+                    <img
+                      src={artworkImage || AgregarArte}
+                      alt="Arte"
+                      className="arte-image"
+                    />
+                  </label>
+                </div>
               </div>
 
-              <input
-                type="file"
-                id="artworkImageInput"
-                accept="image/*"
-                disabled={isFieldDisabled}
-                onChange={handleArtworkImageChange}
-                style={{ display: 'none' }}
-              />
-              {isFieldDisabled && (
-                <label htmlFor="artworkImageInput" className="file-input-label">
-                  <img
-                    src={artworkImage || AgregarArte}
-                    alt="Arte"
-                    className="arte-image"
+
+              <div className="ArtworkDetails">
+                <label htmlFor="artworkName">Nombre de la Obra:</label>
+                <input
+                  type="text"
+                  id="artworkName"
+                  value={artworkName}
+                  onChange={(e) => setArtworkName(e.target.value)}
+                />
+
+                <label>Descripción de la Obra:</label>
+                <textarea
+                  id="artworkDescription"
+                  value={artworkDescription}
+                  onChange={(e) => setArtworkDescription(e.target.value)}
+                  style={{ resize: 'both', overflow: 'auto', minHeight: '100px' }}
+                ></textarea>
+
+                <button className="BotonAddArtwork" onClick={handleGuardarClick}>Guardar</button>
+              </div>
+            </>
+          ) : (
+            <>
+
+
+              <label htmlFor="selectRedSocial">Seleccionar obra:</label>
+              <select
+                id="selectRedSocial"
+                className="Media-Select Centered"
+                onChange={(e) => loadInfo(e.target.value)}>
+                <option value="0">Selecciona una obra</option>
+                <option value="Obra1">Obra 1</option>
+                <option value="Obra2">Obra 2</option>
+                <option value="Obra3">Obra 3</option>
+                <option value="Obra4">Obra 4</option>
+              </select>
+              <div className="ArtworkDetails">
+                <div className="MediaDetails">
+
+                  <input
+                    type="file"
+                    id="artworkImageInputEdit"
+                    accept="image/*"
+                    onChange={handleArtworkImageChange}
+                    style={{ display: 'none' }}
+                    disabled={isFieldDisabled}
                   />
-                </label>
-              )}
+                  <label htmlFor="artworkImageInputEdit" className="file-input-label">
+                    <img
+                      src={artworkImage || AgregarArte}
+                      alt="Arte"
+                      className="arte-image"
+                    />
+                  </label>
+                </div>
+              </div>
 
-              <label htmlFor="artworkNameEdit">Nombre de la Obra:</label>
-              <input
-                type="text"
-                id="artworkNameEdit"
-                value={artworkName}
-                onChange={(e) => setArtworkName(e.target.value)}
-              />
 
-              <label>Descripción de la Obra:</label>
-              <textarea
-                id="artworkDescriptionEdit"
-                value={artworkDescription}
-                onChange={(e) => setArtworkDescription(e.target.value)}
-                style={{ resize: 'both', overflow: 'auto', minHeight: '100px' }}
-              ></textarea>
+              <div className="ArtworkDetails">
+                <label htmlFor="artworkName">Nombre de la Obra:</label>
+                <input
+                  type="text"
+                  id="artworkNameEdit"
+                  value={artworkName}
+                  onChange={(e) => setArtworkName(e.target.value)}
+                  disabled={isFieldDisabled}
+                />
 
-              <button className="BotonAddArtwork" onClick={handleEditarClick} disabled={isFieldDisabled}>Editar</button>
-              <button className="BotonAddArtwork" onClick={handleEliminarClick} disabled={isFieldDisabled}>Eliminar</button>
-            </div>
+                <label>Descripción de la Obra:</label>
+                <textarea
+                  id="artworkDescriptionEdit"
+                  value={artworkDescription}
+                  onChange={(e) => setArtworkDescription(e.target.value)}
+                  style={{ resize: 'both', overflow: 'auto', minHeight: '100px' }}
+                  disabled={isFieldDisabled}
+                ></textarea>
+
+                <button className="BotonAddArtwork" onClick={handleEditarClick} disabled={isFieldDisabled}>Editar</button>
+                <button className="BotonAddArtwork" onClick={handleEliminarClick} disabled={isFieldDisabled}>Eliminar</button>
+              </div>
+            </>
           )}
         </div>
       </div>

@@ -27,20 +27,37 @@ function RedSocialAdmin() {
     }
   };
 
-  const handleMode = (mode) =>
-{
-  setMode(mode);
+  const handleRedSocialIconEditChange = (event) => {
+    const selectedImage = event.target.files[0];
 
-  setRedSocialIcon(null);
-      setRedSocialName('');
-      setRedSocialURL('');
+    if (selectedImage) {
+      const allowedExtensions = ['jpg', 'jpeg', 'png'];
+      const fileExtension = selectedImage.name.split('.').pop().toLowerCase();
 
-if(mode == 'Modificar'){
-    setisFieldDisabled(true);
-}
+      if (allowedExtensions.includes(fileExtension)) {
+        const newImage = URL.createObjectURL(selectedImage);
+        setRedSocialIcon(newImage);
+      } else {
+        swal('Oops!', 'Error en la extensión del archivo', 'error');
+        setRedSocialIcon(null);
+      }
+    }
+  };
 
+  const handleMode = (mode) => {
+    setMode(mode);
 
-}
+    setRedSocialIcon(null);
+    setRedSocialName('');
+    setRedSocialURL('');
+
+    if (mode === 'Modificar') {
+      setisFieldDisabled(true);
+    } else {
+      setisFieldDisabled(false);
+    }
+  };
+
   const isURLValid = (url) => {
     const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
     return urlRegex.test(url);
@@ -82,12 +99,33 @@ if(mode == 'Modificar'){
   };
 
   const handleEliminarClick = () => {
-
-  }
+    swal({
+      title: '¿Estás seguro?',
+      text: 'Una vez eliminado, no podrás recuperar esta red social.',
+      icon: 'warning',
+      buttons: ['Cancelar', 'Eliminar'],
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        // TODO: Agrega aquí la lógica para la eliminación del video
+        swal('Poof! La red social ha sido eliminado.', {
+          icon: 'success',
+        });
+        setRedSocialIcon(null);
+        setRedSocialName('');
+        setRedSocialURL('');
+        setMode("Agregar");
+      } else {
+        swal('La red social está a salvo.');
+      }
+    });
+  };
 
   const loadInfo = (id) => {
-    setRedSocialName(id);
-    setisFieldDisabled(false);
+    if (id != '0') {
+      setRedSocialName(id);
+      setisFieldDisabled(false);
+    }
   };
 
   return (
@@ -156,25 +194,27 @@ if(mode == 'Modificar'){
               </>
             ) : (
               <>
-                {/* <label htmlFor="selectRedSocial">Seleccionar Red Social:</label> */}
+                <label htmlFor="selectRedSocial">Seleccionar Red Social:</label>
                 <select
                   id="selectRedSocial"
+                  className="Media-Select Centered"
                   onChange={(e) => loadInfo(e.target.value)}
                 >
                   {/* TODO: Aquí se agregarían todas las redes sociales */}
+                  <option value="0">Selecciona una red social</option>
                   <option value="redSocial1">Red Social 1</option>
                   <option value="redSocial2">Red Social 2</option>
                 </select>
+
                 <input
                   type="file"
                   id="redSocialIconInputEdit"
                   accept="image/*"
-                  disabled={isFieldDisabled}
-                  onChange={handleRedSocialIconChange}
+                  onChange={handleRedSocialIconEditChange}
                   style={{ display: 'none' }}
-                  
+                  disabled={isFieldDisabled}
                 />
-                <label htmlFor="redSocialIconInput" className="file-input-label">
+                <label htmlFor="redSocialIconInputEdit" className="file-input-label">
                   <img
                     src={redSocialIcon || AgregarArte}
                     alt="RedSocial"

@@ -58,6 +58,7 @@ function Admin() {
         </div>
         <div className="ContenidoAdm">
           <div className="buttons-container">
+          <hr/>
             <MenuToggle
               onClick={() => handleMenuToggle(setmenuVisibleAcercaDe, menuVisibleAcercaDe, 'Acerca De')}
               isVisible={menuVisibleAcercaDe}
