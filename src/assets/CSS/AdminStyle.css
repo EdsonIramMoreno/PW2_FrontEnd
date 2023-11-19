@@ -239,6 +239,8 @@ img {
 
 .Artwork-card {
   display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .BotonAddArtwork {
@@ -295,4 +297,9 @@ img {
 
 #selectRedSocial:hover {
   background-color: #ffcd94;
+}
+
+.Media-Select{
+  display: flex;
+  justify-content: center;
 }

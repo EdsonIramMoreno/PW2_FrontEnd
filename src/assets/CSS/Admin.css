@@ -117,6 +117,14 @@ hr {
 
 .ArtworkDetails{
   margin: 5px;
+  /* display: flex; */
+}
+
+.ArtworkDetail{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 75%;
 }
 
 .Correo-card{
