@@ -7,8 +7,7 @@ import '../assets/CSS//NavbarStyle.css'
 import '../assets/CSS/Media.css'
 
 function Media() {
-    const [visible, setVisible] = useState(false);
-
+    const [visible, setVisible] = useState(false);  
     useEffect(() => {
         // Simula una demora antes de mostrar el componente
         const timeout = setTimeout(() => {

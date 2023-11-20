@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 // import NavBar from './Navbar';
 import Footer from './Footer';
-import ArtworkGrid from '../Components/ArtworkImgs';
+import ArtworkImgs from '../Components/ArtworkImgs';
 import '../assets/CSS/Artwork.css';
 
 function Artwork() {
@@ -28,7 +28,7 @@ function Artwork() {
                         <h2>ARTWORK</h2>
                     </div>
                     <div className='Margin-Pg'>
-                        <ArtworkGrid />
+                        <ArtworkImgs />
                     </div>
                 </div>
             </div>
