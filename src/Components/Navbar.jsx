@@ -29,6 +29,8 @@ function NavBar() {
     } else {
       setIsAdmin(false);
     }
+
+    
   }, []);
 
 

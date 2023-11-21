@@ -45,7 +45,7 @@ function Details() {
           <div className='Card-Info'>
 
             <div className="Image-Artwork">
-              <img src={ArtistaImg} alt={post.title} />
+              <img src={post.photo} alt={post.title} />
             </div>
 
             <div className='Card-Descript'>

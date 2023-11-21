@@ -3,6 +3,7 @@ import '../../assets/CSS/AdminStyle.css';
 import AgregarArte from '../../assets/img/AgregarArte.jpg';
 import swal from 'sweetalert';
 import { API_ENDPOINTS_POST } from '../../Api';
+import { sendImage } from '../../firebase';
 
 function ArtWorkAdmin() {
   const [artworkImage, setArtworkImage] = useState(null);
@@ -10,6 +11,7 @@ function ArtWorkAdmin() {
   const [artworkDescription, setArtworkDescription] = useState('');
   const [mode, setMode] = useState('Agregar');
   const [isFieldDisabled, setisFieldDisabled] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const [posts, setPosts] = useState([]);
   const [postsUpdate, setPostsUpdate] = useState([]);
@@ -62,7 +64,7 @@ function ArtWorkAdmin() {
   };
 
   const handleArtworkImageChange = (event) => {
-    const selectedImage = event.target.files[0];
+    setSelectedImage(event.target.files[0]);
 
     if (selectedImage) {
       const allowedExtensions = ['jpg', 'jpeg', 'png'];
@@ -79,7 +81,10 @@ function ArtWorkAdmin() {
   };
 
   const handleGuardarClick = async () => {
+    let downloadURL;
     if (artworkName && artworkDescription && artworkImage) {
+
+      downloadURL = await sendImage(selectedImage);
 
       const userData = JSON.parse(localStorage.getItem('userData'));
       // TODO: Aquí se mandaría la info a la API
@@ -88,7 +93,7 @@ function ArtWorkAdmin() {
         const data = {
           title: artworkName,
           desc: artworkDescription,
-          photo: "url",
+          photo: downloadURL.downloadURL,
           id_user_creation: userData._id,
           creation_date: formattedDate,
           id_user_update: userData._id,
@@ -130,7 +135,10 @@ function ArtWorkAdmin() {
   };
 
   const handleEditarClick = async () => {
+    let downloadURL;
     if (artworkName && artworkDescription && artworkImage) {
+
+      downloadURL = await sendImage(selectedImage);
 
       const userData = JSON.parse(localStorage.getItem('userData'));
       // TODO: Aquí se mandaría la info a la API
@@ -139,7 +147,7 @@ function ArtWorkAdmin() {
         const data = {
           title: artworkName,
           desc: artworkDescription,
-          photo: "url",
+          photo: downloadURL.downloadURL,
           id_user_creation: userData._id,
           creation_date: formattedDate,
           id_user_update: userData._id,
@@ -217,7 +225,7 @@ function ArtWorkAdmin() {
           const data = {
             title: artworkName,
             desc: artworkDescription,
-            photo: "url",
+            photo: "",
             id_user_creation: userData._id,
             creation_date: formattedDate,
             id_user_update: userData._id,
@@ -290,6 +298,7 @@ function ArtWorkAdmin() {
 
         setArtworkName(selectedPost.title);
         setArtworkDescription(selectedPost.desc);
+        setArtworkImage(selectedPost.photo);
 
         setisFieldDisabled(false);
       }

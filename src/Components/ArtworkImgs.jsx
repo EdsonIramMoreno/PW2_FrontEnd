@@ -35,7 +35,7 @@ function ArtworkGrid() {
           <ObraComponent
             key={post._id}
             name={post.title}
-            image={Pinturas}
+            image={post.photo}
             id={post._id}
           />
         ))}

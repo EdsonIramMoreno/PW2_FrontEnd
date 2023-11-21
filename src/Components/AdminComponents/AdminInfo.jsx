@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import '../../assets/CSS/AdminStyle.css';
 import ArtistaImg from '../../assets/img/ArtistaEjemplo.jpg';
 import { API_ENDPOINTS_ABOUT } from '../../Api';
+import { sendImage } from '../../firebase';
 
 function AdminInfo() {
   const [nombre, setNombre] = useState('');
@@ -10,6 +11,7 @@ function AdminInfo() {
   const [historia, setHistoria] = useState('');
   const [artistaImage, setArtistaImage] = useState(null);
   const [about, setAbout] = useState([]);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const [currentDate, setCurrentDate] = useState(new Date());
   const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -29,6 +31,7 @@ function AdminInfo() {
             setAbout(aboutData);
             setNombre(aboutData.artist_name);
             setHistoria(aboutData.resume);
+            setArtistaImage(aboutData.photo);
           }
         } else {
           console.error('Failed to fetch data:', response.status, response.statusText);
@@ -45,7 +48,11 @@ function AdminInfo() {
 
 
   const handleEditAcercaDe = async () => {
+    let downloadURL;
     if (nombre && historia) {
+
+
+      downloadURL = await sendImage(selectedImage);
 
 
       const userData = JSON.parse(localStorage.getItem('userData'));
@@ -54,7 +61,7 @@ function AdminInfo() {
         const data = {
           artist_name: nombre,
           resume: historia,
-          photo: "photo",
+          photo: downloadURL.downloadURL,
           email: about.email,
           id_user_update: userData._id,
           update_date: formattedDate
@@ -99,21 +106,24 @@ function AdminInfo() {
   };
 
   const handleArtistaImageChange = (event) => {
-    const selectedImageVar = event.target.files[0];
-    if (selectedImageVar) {
-      const allowedExtensions = ['jpg', 'jpeg', 'png'];
-      const fileExtension = selectedImageVar.name.split('.').pop().toLowerCase();
+    const selectedImageFile = event.target.files[0];
+    setSelectedImage(event.target.files[0]);
 
+    if (selectedImageFile) {
+      const allowedExtensions = ['jpg', 'jpeg', 'png'];
+      const fileExtension = selectedImageFile.name.split('.').pop().toLowerCase();
+  
       if (allowedExtensions.includes(fileExtension)) {
-        const newImage = URL.createObjectURL(selectedImageVar);
+        setSelectedImage(selectedImageFile);
+        const newImage = URL.createObjectURL(selectedImageFile);
         setArtistaImage(newImage);
-        setArtistaImage([newImage]);
       } else {
         swal('Oops!', 'Error en la extensión del archivo', 'error');
         setArtistaImage(null);
       }
     }
   };
+  
 
   return (
     <div className="Body3 admb">

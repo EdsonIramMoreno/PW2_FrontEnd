@@ -58,7 +58,7 @@ function AcercaDe() {
                     </div>
                     <div className="Info">
                         <div className="FotoArtista">
-                            <img src={ArtistaImg} alt="Artista" />
+                            <img src={about.photo} alt="Artista" />
                         </div>
                         <div className="InfoArtista">
                             <h2>{about.artist_name}</h2>

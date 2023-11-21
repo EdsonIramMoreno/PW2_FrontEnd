@@ -48,14 +48,16 @@ function RedSocialAdmin() {
   }, [mediaUpdate, media]);
 
   const handleRedSocialIconChange = (event) => {
+    const selectedImageFile = event.target.files[0];
     setSelectedImage(event.target.files[0]);
 
-    if (selectedImage) {
+    if (selectedImageFile) {
       const allowedExtensions = ['jpg', 'jpeg', 'png'];
-      const fileExtension = selectedImage.name.split('.').pop().toLowerCase();
-
+      const fileExtension = selectedImageFile.name.split('.').pop().toLowerCase();
+  
       if (allowedExtensions.includes(fileExtension)) {
-        const newImage = URL.createObjectURL(selectedImage);
+        setSelectedImage(selectedImageFile);
+        const newImage = URL.createObjectURL(selectedImageFile);
         setRedSocialIcon(newImage);
       } else {
         swal('Oops!', 'Error en la extensión del archivo', 'error');
@@ -65,14 +67,16 @@ function RedSocialAdmin() {
   };
 
   const handleRedSocialIconEditChange = (event) => {
+    const selectedImageFile = event.target.files[0];
     setSelectedImage(event.target.files[0]);
 
-    if (selectedImage) {
+    if (selectedImageFile) {
       const allowedExtensions = ['jpg', 'jpeg', 'png'];
-      const fileExtension = selectedImage.name.split('.').pop().toLowerCase();
-
+      const fileExtension = selectedImageFile.name.split('.').pop().toLowerCase();
+  
       if (allowedExtensions.includes(fileExtension)) {
-        const newImage = URL.createObjectURL(selectedImage);
+        setSelectedImage(selectedImageFile);
+        const newImage = URL.createObjectURL(selectedImageFile);
         setRedSocialIcon(newImage);
       } else {
         swal('Oops!', 'Error en la extensión del archivo', 'error');
@@ -102,9 +106,11 @@ function RedSocialAdmin() {
 
 
   const handleGuardarClick = async () => {
+    let downloadURL;
+
     if (redSocialName && redSocialURL && redSocialIcon && isURLValid(redSocialURL)) {
 
-      downloadURL= await sendImage(selectedImage);
+      downloadURL = await sendImage(selectedImage);
       
       const userData = JSON.parse(localStorage.getItem('userData'));
       // TODO: Aquí se mandaría la info a la API
@@ -113,7 +119,7 @@ function RedSocialAdmin() {
         const data = {
           name: redSocialName,
           url: redSocialURL,
-          icon: downloadURL,
+          icon: downloadURL.downloadURL,
           id_user_creation: userData._id,
           creation_date: formattedDate,
           id_user_update: userData._id,
@@ -121,6 +127,7 @@ function RedSocialAdmin() {
           isActive: true
         };
 
+console.log(data);
 
         const response = await fetch(API_ENDPOINTS_SOCIAL_MEDIA.socialMediaUpload, {
           method: 'POST',
@@ -130,15 +137,16 @@ function RedSocialAdmin() {
           body: JSON.stringify(data),
         });
 
+        console.log(response);
         if (response.status === 200) {
           swal('Success!', 'Inicio de sesión exitoso', 'success');
           const responseData = await response.json();
 
           swal('Agregado!', 'La red social fue agregada correctamente.', 'success');
-      // Se resetean los valores para poder agregar más obras
-      setRedSocialIcon(null);
-      setRedSocialName('');
-      setRedSocialURL('');
+          // Se resetean los valores para poder agregar más obras
+          setRedSocialIcon(null);
+          setRedSocialName('');
+          setRedSocialURL('');
 
         } else if (response.status === 401) {
           console.error('Authentication failed');
@@ -156,11 +164,17 @@ function RedSocialAdmin() {
   };
 
   const handleEditarClick = async () => {
-    console.log(isURLValid(redSocialURL));
-
+    let downloadURL;
     if (redSocialName && redSocialURL && redSocialIcon && isURLValid(redSocialURL)) {
 
-      downloadURL= await sendImage(selectedImage);
+      try {
+        downloadURL = await sendImage(selectedImage);
+  
+        // Rest of the code
+      } catch (error) {
+        console.error('Error during image upload:', error);
+        swal('Oops!', 'Error al subir la imagen', 'error');
+      }
       // TODO: Aquí se mandaría la info a la API
 
       const userData = JSON.parse(localStorage.getItem('userData'));
@@ -169,7 +183,7 @@ function RedSocialAdmin() {
         const data = {
           name: redSocialName,
           url: redSocialURL,
-          icon: downloadURL,
+          icon: downloadURL.downloadURL,
           id_user_creation: userData._id,
           creation_date: formattedDate,
           id_user_update: userData._id,
@@ -245,8 +259,8 @@ function RedSocialAdmin() {
 
           const data = {
             name: redSocialName,
-    url: redSocialURL,
-    icon: "redSocialIcon",
+            url: redSocialURL,
+            icon: "",
             id_user_creation: userData._id,
             creation_date: formattedDate,
             id_user_update: userData._id,
