@@ -3,6 +3,7 @@ import '../../assets/CSS/AdminStyle.css';
 import AgregarArte from '../../assets/img/AgregarArte.jpg';
 import swal from 'sweetalert';
 import { API_ENDPOINTS_SOCIAL_MEDIA } from '../../Api';
+import { sendImage } from '../../firebase';
 
 function RedSocialAdmin() {
   const [redSocialIcon, setRedSocialIcon] = useState(null);
@@ -10,6 +11,7 @@ function RedSocialAdmin() {
   const [redSocialURL, setRedSocialURL] = useState('');
   const [mode, setMode] = useState('Agregar');
   const [isFieldDisabled, setisFieldDisabled] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const [media, setMedia] = useState([]);
   const [mediaUpdate, setMediaUpdate] = useState([]);
@@ -46,7 +48,7 @@ function RedSocialAdmin() {
   }, [mediaUpdate, media]);
 
   const handleRedSocialIconChange = (event) => {
-    const selectedImage = event.target.files[0];
+    setSelectedImage(event.target.files[0]);
 
     if (selectedImage) {
       const allowedExtensions = ['jpg', 'jpeg', 'png'];
@@ -63,7 +65,7 @@ function RedSocialAdmin() {
   };
 
   const handleRedSocialIconEditChange = (event) => {
-    const selectedImage = event.target.files[0];
+    setSelectedImage(event.target.files[0]);
 
     if (selectedImage) {
       const allowedExtensions = ['jpg', 'jpeg', 'png'];
@@ -94,13 +96,15 @@ function RedSocialAdmin() {
   };
 
   const isURLValid = (url) => {
-    const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
+    const urlRegex = /www\.[^ "]+\.com$/;
     return urlRegex.test(url);
-  };
+};
+
 
   const handleGuardarClick = async () => {
     if (redSocialName && redSocialURL && redSocialIcon && isURLValid(redSocialURL)) {
 
+      downloadURL= await sendImage(selectedImage);
       
       const userData = JSON.parse(localStorage.getItem('userData'));
       // TODO: Aquí se mandaría la info a la API
@@ -108,8 +112,8 @@ function RedSocialAdmin() {
 
         const data = {
           name: redSocialName,
-    url: redSocialURL,
-    icon: "redSocialIcon",
+          url: redSocialURL,
+          icon: downloadURL,
           id_user_creation: userData._id,
           creation_date: formattedDate,
           id_user_update: userData._id,
@@ -152,7 +156,11 @@ function RedSocialAdmin() {
   };
 
   const handleEditarClick = async () => {
+    console.log(isURLValid(redSocialURL));
+
     if (redSocialName && redSocialURL && redSocialIcon && isURLValid(redSocialURL)) {
+
+      downloadURL= await sendImage(selectedImage);
       // TODO: Aquí se mandaría la info a la API
 
       const userData = JSON.parse(localStorage.getItem('userData'));
@@ -161,7 +169,7 @@ function RedSocialAdmin() {
         const data = {
           name: redSocialName,
           url: redSocialURL,
-          icon: "redSocialIcon",
+          icon: downloadURL,
           id_user_creation: userData._id,
           creation_date: formattedDate,
           id_user_update: userData._id,
@@ -299,10 +307,12 @@ function RedSocialAdmin() {
     if (selectedValue !== '0') {
       const selectedMedia = media.find(m => m._id === selectedValue);
       if (selectedMedia) {
+        
         setMediaUpdate(selectedMedia);
         setRedSocialName(selectedMedia.name);
         setRedSocialURL(selectedMedia.url);
-        setRedSocialIcon(null);
+        setRedSocialIcon(selectedMedia.icon);
+
         setisFieldDisabled(false);
       }
     }
