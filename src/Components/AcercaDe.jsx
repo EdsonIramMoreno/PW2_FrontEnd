@@ -3,21 +3,50 @@ import '../assets/CSS/NavbarStyle.css'
 import '../assets/CSS/AcercaDe.css'
 import SocialMediaList from './SocialMediaList.jsx';
 import ArtistaImg from '../assets/img/ArtistaEjemplo.jpg'
+import { API_ENDPOINTS_ABOUT } from '../Api';
 
 
 function AcercaDe() {
     const [visible, setVisible] = useState(false);
 
+    const [about, setAbout] = useState([]);
+
     useEffect(() => {
-        // Simula una demora antes de mostrar el componente
-        const timeout = setTimeout(() => {
+
+        
+        const fetchData = async () => {
+          try {
+            const response = await fetch(API_ENDPOINTS_ABOUT.getAbout);
+    
+            if (response.ok) {
+              const result = await response.json();
+    
+              // Update the state with the fetched data only if data is available
+              if (result.data && result.data.length > 0) {
+                const aboutData = result.data[0];
+                setAbout(aboutData);
+              }
+            } else {
+              console.error('Failed to fetch data:', response.status, response.statusText);
+            }
+          } catch (error) {
+            console.error('Error during data fetching:', error);
+            setAbout([]);
+          }
+        };
+    
+        // Call the fetchData function when the component mounts
+        fetchData();
+
+         // Simula una demora antes de mostrar el componente
+         const timeout = setTimeout(() => {
             setVisible(true);
         }, 100); // Cambia esto al tiempo de carga deseado
 
         return () => {
             clearTimeout(timeout);
         };
-    }, []);
+      }, []); 
 
     return (
         <div className={`mi-componente ${visible ? 'visible' : ''}`}>
@@ -32,26 +61,8 @@ function AcercaDe() {
                             <img src={ArtistaImg} alt="Artista" />
                         </div>
                         <div className="InfoArtista">
-                            <h2>NOMBRE</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, unde quaerat? Harum hic repellendus 			sapiente tempore nisi! Earum
-                                non beatae, necessitatibus mollitia porro
-                                eligendi libero, qui corrupti tempore saepe a.
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, unde quaerat? Harum hic repellendus 			sapiente tempore nisi! Earum
-                                non beatae, necessitatibus mollitia porro
-                                eligendi libero, qui corrupti tempore saepe a.
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, unde quaerat? Harum hic repellendus 			sapiente tempore nisi! Earum
-                                non beatae, necessitatibus mollitia porro
-                                eligendi libero, qui corrupti tempore saepe a.
-
-                                non beatae, necessitatibus mollitia porro
-                                eligendi libero, qui corrupti tempore saepe a.
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, unde quaerat? Harum hic repellendus 			sapiente tempore nisi! Earum
-                                non beatae, necessitatibus mollitia porro
-                                eligendi libero, qui corrupti tempore saepe a.
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, unde quaerat? Harum hic repellendus 			sapiente tempore nisi! Earum
-                                non beatae, necessitatibus mollitia porro
-                                eligendi libero, qui corrupti tempore saepe a.
-                                </p>
+                            <h2>{about.artist_name}</h2>
+                            <p>{about.resume}</p>
                         </div>
                     </div>
                     <SocialMediaList />

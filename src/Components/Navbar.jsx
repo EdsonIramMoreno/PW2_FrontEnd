@@ -75,6 +75,7 @@ function NavBar() {
 
         <Route path="/details/:id" element={<ObraDetails />} />
 
+
         {/* Eliminar despues */}
         <Route path="/Administracion" element={<Admin />}></Route>
       </Routes>

@@ -69,8 +69,6 @@ function Login() {
 
         localStorage.setItem('userData', JSON.stringify(responseData.data));
 
-        //
-
         window.location.href = '/Administracion';
         navigate('/Administracion');
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 function ObraComponent(props) {
   const { id, name, image } = props;
@@ -14,5 +14,6 @@ function ObraComponent(props) {
     </Link>
   );
 }
+
 
 export default ObraComponent;

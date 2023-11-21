@@ -33,6 +33,7 @@ function ArtworkGrid() {
         .filter(post => post.isActive)
         .map((post) => (
           <ObraComponent
+            key={post._id}
             name={post.title}
             image={Pinturas}
             id={post._id}
