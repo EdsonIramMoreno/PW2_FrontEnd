@@ -50,7 +50,7 @@ function NavBar() {
     <Router>
 
       <nav className="ClassNavBar">
-        <li className='NombreNav'><Link to="/Artwork">NOMBRE</Link></li>
+        <li className='NombreNav'><Link to="/Artwork">Espacio caórdico</Link></li>
         <ul className="menu">
           <li><Link to="/AcercaDe">ACERCA DE</Link></li>
           <li><Link to="/Artwork">ARTWORK</Link></li>
